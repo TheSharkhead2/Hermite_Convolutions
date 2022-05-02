@@ -1,5 +1,5 @@
 function inner_product(f::Function, g::Function)
-    integrand = f*g*(x->e^((-x^2)/2))
+    integrand = f*g*(x->exp((-x^2)/2))
 
     integral, err = quadgk(integrand, -Inf, Inf)
 

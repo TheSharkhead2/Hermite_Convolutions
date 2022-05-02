@@ -6,17 +6,20 @@ using Plots, PlotThemes
 
 theme(:dark)
 
-h_0(x) = 1 # initial polynomial
+h_0(x) = 1/sqrt(sqrt(2*π)) # initial polynomial
 
 # generate the next polynomials 
-h_1 = next_hermite_polynomial(h_0)
-h_2 = next_hermite_polynomial(h_1)
-h_3 = next_hermite_polynomial(h_2)
+polynomials = hermite_generation(3, Vector{Function}([h_0]))
 
-println(typeof(h_0))
+display(plot(polynomials, 0, 2))
 
-testGeneration = hermite_generation(3, Vector{Function}([h_0]))
+for polynomial in polynomials 
+    println(norm(polynomial))
+end # for
 
-display(plot([h_0, h_1, h_2, h_3, testGeneration...], 0, 1))
+println(inner_product(polynomials[1], polynomials[2]))
+println(inner_product(polynomials[1], polynomials[3]))
+println(inner_product(polynomials[2], polynomials[3]))
+println(inner_product(polynomials[1], polynomials[4]))
 
 readline()

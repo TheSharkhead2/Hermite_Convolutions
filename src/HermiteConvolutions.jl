@@ -13,7 +13,7 @@ using QuadGK
 
 include("vectorSpace.jl")
 
-export inner_product
+export inner_product, norm
 
 include("hermitePolynomials.jl")
 
