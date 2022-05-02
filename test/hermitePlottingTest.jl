@@ -6,10 +6,8 @@ using Plots, PlotThemes
 
 theme(:dark)
 
-h_0(x) = 1/sqrt(sqrt(2*π)) # initial polynomial
-
 # generate the next polynomials 
-polynomials = hermite_generation(3, Vector{Function}([h_0]))
+polynomials = normalized_hermite_generation(3)
 
 display(plot(polynomials, 0, 2))
 

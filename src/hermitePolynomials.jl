@@ -19,3 +19,14 @@ function hermite_generation(n::Int, polynomials::Vector{Function})
         return hermite_generation(n-1, polynomials) # recurse
     end # if 
 end # function hermite_generation
+
+
+"""
+Generate n Hermite polynomials that are normalized (using hermite_generation method )
+
+"""
+function normalized_hermite_generation(n::Int; h_0::Function=(x->1))
+    nonscaled = hermite_generation(n, Vector{Function}([h_0]))
+
+    [1/norm(polynomial) * polynomial for polynomial in nonscaled] # normalize each polynomial
+end # function normalized_hermite_generation

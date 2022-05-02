@@ -5,7 +5,7 @@ import Base.+, Base.-, Base.*
 
 +(f::Function, g::Function) = (x...) -> f(x...) + g(x...)
 -(f::Function, g::Function) = (x...) -> f(x...) - g(x...)
-*(a::ComplexF64, f::Function) = (x...) -> a*f(x...)
+*(a::Float64, f::Function) = (x...) -> a*f(x...)
 *(f::Function, g::Function) = (x...) -> f(x...) * g(x...)
 
 using ForwardDiff
@@ -17,6 +17,6 @@ export inner_product, norm
 
 include("hermitePolynomials.jl")
 
-export next_hermite_polynomial, hermite_generation
+export next_hermite_polynomial, hermite_generation, normalized_hermite_generation
 
 end # module HermiteConvolutions
