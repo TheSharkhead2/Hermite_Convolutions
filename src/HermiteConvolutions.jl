@@ -19,4 +19,8 @@ include("hermitePolynomials.jl")
 
 export next_hermite_polynomial, hermite_generation, normalized_hermite_generation
 
+include("convolution.jl")
+
+export generic_convolution_operator
+
 end # module HermiteConvolutions
