@@ -34,9 +34,9 @@ end # function normalized_hermite_generation
 Fit a set of n Hermite polynomials to a function f 
 
 """
-function hermite_fit(f::Function, n::Int; h_0::Function=(x->1))
-    polynomials = normalized_hermite_generation(n; h_0=h_0) # generate n hermite polynomials 
-    [inner_product(polynomial, f) for polynomial in polynomials] # evaluate the inner product of each polynomial with f
+function hermite_fit(f::Function, n::Int)
+    polynomials = norm_hermite_generation(n-1) # generate n hermite polynomials 
+    [inner_product(vec_to_func(polynomial), f) for polynomial ∈ polynomials] # evaluate the inner product of each polynomial with f
 end # function hermite_fit
 
 """

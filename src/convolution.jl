@@ -29,3 +29,11 @@ function convolution_operator(f::Vector{Float64}, dim::Int)
 
     toeplitzMatrix # return toeplitz matrix
 end # function convolution
+
+"""
+Gets "left inverse" of mxn matrix A where m>n and dim range(A) = n
+
+"""
+function left_inverse(A::Matrix{Float64})
+    inv(transpose(A)*A)*transpose(A) # return left inverse
+end # function left_inverse

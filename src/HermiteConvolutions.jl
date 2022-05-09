@@ -10,6 +10,7 @@ import Base.+, Base.-, Base.*
 
 using ForwardDiff
 using QuadGK
+using LinearAlgebra
 
 include("vectorSpace.jl")
 
@@ -17,10 +18,10 @@ export inner_product, norm
 
 include("hermitePolynomials.jl")
 
-export next_hermite_polynomial, hermite_generation, normalized_hermite_generation, vec_to_func, next_hermite, hermite_generation, norm_hermite_generation, basis_change
+export next_hermite_polynomial, hermite_generation, normalized_hermite_generation, vec_to_func, next_hermite, hermite_generation, norm_hermite_generation, basis_change, hermite_fit
 
 include("convolution.jl")
 
-export generic_convolution_operator, convolution_operator
+export generic_convolution_operator, convolution_operator, left_inverse
 
 end # module HermiteConvolutions
