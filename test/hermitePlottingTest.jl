@@ -7,9 +7,11 @@ using Plots, PlotThemes
 theme(:dark)
 
 # generate the next polynomials 
-polynomials = normalized_hermite_generation(3)
+polynomials = normalized_hermite_generation(5)
+polynomialsVec = norm_hermite_generation(5)
+polyVecFunc = vec_to_func.(polynomialsVec)
 
-display(plot(polynomials, 0, 2))
+display(plot([polynomials..., polyVecFunc...], 0, 2))
 
 for polynomial in polynomials 
     println(norm(polynomial))
