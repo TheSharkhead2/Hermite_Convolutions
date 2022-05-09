@@ -17,10 +17,10 @@ export inner_product, norm
 
 include("hermitePolynomials.jl")
 
-export next_hermite_polynomial, hermite_generation, normalized_hermite_generation, vec_to_func, next_hermite, hermite_generation, norm_hermite_generation
+export next_hermite_polynomial, hermite_generation, normalized_hermite_generation, vec_to_func, next_hermite, hermite_generation, norm_hermite_generation, basis_change
 
 include("convolution.jl")
 
-export generic_convolution_operator
+export generic_convolution_operator, convolution_operator
 
 end # module HermiteConvolutions

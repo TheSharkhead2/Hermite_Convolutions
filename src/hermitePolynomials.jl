@@ -96,5 +96,24 @@ n normalized hermite polynomials
 function norm_hermite_generation(n::Int; h_0::Vector{Float64}=[1.0])
     nonscaled = hermite_generation(n, [h_0]) # generate n hermite polynomials
 
-    [1/norm(vec_to_func(polynomial)) * polynomial for polynomial ∈ nonscaled] # normalize each polynomial (need to convert to function first to calculate norm)
+    normalizedPolynomials = [1/norm(vec_to_func(polynomial)) * polynomial for polynomial ∈ nonscaled] # normalize each polynomial (need to convert to function first to calculate norm)
+
+    maxLength = maximum(length, normalizedPolynomials) # find the maximum length of the vectors
+
+    for polynomial ∈ normalizedPolynomials # for each polynomial
+        append!(polynomial, zeros(maxLength - length(polynomial))) # append 0s to the polynomial to match the maximum length
+    end # for
+
+    normalizedPolynomials # return the vector of normalized polynomials
 end # function norm_hermite_polynomials
+
+"""
+Contructs change of basis matrix for hermite basis to standard basis
+of dim n 
+
+"""
+function basis_change(n::Int)
+    basis = norm_hermite_generation(n-1) # generate n hermite polynomials
+
+    hcat(basis...) # concatenate the hermite polynomials into a single matrix of nxn
+end # function basis_change
